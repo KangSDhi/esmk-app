@@ -46,6 +46,33 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        // guard pengelola
+
+        'pengelola' => [
+            'driver' => 'session',
+            'provider' => 'pengelolas',
+        ],
+
+        'pengelola-api' => [
+            'driver' => 'token',
+            'provider' => 'pengelolas',
+            'hash' => false,
+        ],
+
+        // guard siswa
+
+        'siswa' => [
+            'driver' => 'session',
+            'provider' => 'siswas'
+        ],
+
+        'siswa-api' => [
+            'driver' => 'token',
+            'provider' => 'siswas',
+            'hash' => false,
+        ],
+
     ],
 
     /*
@@ -75,6 +102,16 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        'pengelolas' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Pengelola::class,
+        ],
+
+        'siswas' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Siswa::class,
+        ],
     ],
 
     /*
