@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\HomeController as Home;
 use App\Http\Controllers\Auth\AuthPengelolaController as AuthPengelola;
+use App\Http\Controllers\Admin\AdminController as Admin;
 use App\Http\Controllers\Kesiswaan\KesiswaanController as Kesiswaan;
+use App\Http\Controllers\Toolman\ToolmanController as Toolman;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,17 @@ Route::middleware('guest')->group(function (){
     Route::post('/login-pengelola', [AuthPengelola::class, 'login'])->name('post.loginPengelola');
 });
 
+Route::middleware(['auth:pengelola', 'role:admin'])->group(function (){
+    Route::get('/dashboard/admin', [Admin::class, 'index'])->name('get.dashboardAdmin');
+    Route::get('/dashboard/admin/logout', [AuthPengelola::class, 'logout'])->name('get.logoutAdmin');
+});
+
 Route::middleware(['auth:pengelola', 'role:kesiswaan'])->group(function (){
     Route::get('/dashboard/kesiswaan', [Kesiswaan::class, 'index'])->name('get.dashboardKesiswaan');
+    Route::get('/dashboard/kesiswaan/logout', [AuthPengelola::class, 'logout'])->name('get.logoutKesiswaan');
+});
+
+Route::middleware(['auth:pengelola', 'role:toolman'])->group(function (){
+    Route::get('/dashboard/toolman', [Toolman::class, 'index'])->name('get.dashboardToolman');
+    Route::get('/dashboard/toolman/logout', [AuthPengelola::class, 'logout'])->name('get.logoutToolman');
 });

@@ -26,11 +26,11 @@ class AuthPengelolaController extends Controller
             if ($auth){
                 $checkRole = Auth::guard('pengelola')->user();
                 if ($checkRole->hasRole('admin')){
-                    echo "Dashboard Admin";
+                    return Redirect::route('get.dashboardAdmin');
                 }elseif ($checkRole->hasRole('kesiswaan')){
                     return Redirect::route('get.dashboardKesiswaan');
                 }elseif ($checkRole->hasRole('toolman')){
-                    echo "Dashboard Toolman";
+                    return Redirect::route('get.dashboardToolman');
                 }
             }else{
                 $message = 'Anda Bukan Pengelola';
@@ -42,5 +42,10 @@ class AuthPengelolaController extends Controller
                 'title' => $title
             ]);
         }
+    }
+
+    public function logout(){
+        Auth::guard('pengelola')->logout();
+        return Redirect::route('get.loginPengelola');
     }
 }

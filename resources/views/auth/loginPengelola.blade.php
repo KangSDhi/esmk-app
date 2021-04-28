@@ -3,7 +3,7 @@
 @section('title', $title)
 
 @section('content')
-    <section class="hero is-primary is-fullheight">
+    <section class="hero is-info is-fullheight">
         <div class="hero-body">
             <div class="container">
                 @if ($message = \Illuminate\Support\Facades\Session::get('error'))
@@ -48,7 +48,3 @@
         </div>
     </section>
 @endsection
-
-@push('js')
-    <script type="text/javascript" src="{{ asset('js/authPengelola.js') }}"></script>
-@endpush
