@@ -18,7 +18,7 @@ use App\Http\Controllers\Toolman\ToolmanController as Toolman;
 |
 */
 
-Route::middleware('guest')->group(function (){
+Route::middleware(['guest', 'cors'])->group(function (){
     // home routing
     Route::get('/', [Home::class, 'index'])->name('get.home');
     // login pengelola routing
@@ -26,17 +26,17 @@ Route::middleware('guest')->group(function (){
     Route::post('/login-pengelola', [AuthPengelola::class, 'login'])->name('post.loginPengelola');
 });
 
-Route::middleware(['auth:pengelola', 'role:admin'])->group(function (){
+Route::middleware(['auth:pengelola', 'role:admin', 'cors'])->group(function (){
     Route::get('/dashboard/admin', [Admin::class, 'index'])->name('get.dashboardAdmin');
     Route::get('/dashboard/admin/logout', [AuthPengelola::class, 'logout'])->name('get.logoutAdmin');
 });
 
-Route::middleware(['auth:pengelola', 'role:kesiswaan'])->group(function (){
+Route::middleware(['auth:pengelola', 'role:kesiswaan', 'cors'])->group(function (){
     Route::get('/dashboard/kesiswaan', [Kesiswaan::class, 'index'])->name('get.dashboardKesiswaan');
     Route::get('/dashboard/kesiswaan/logout', [AuthPengelola::class, 'logout'])->name('get.logoutKesiswaan');
 });
 
-Route::middleware(['auth:pengelola', 'role:toolman'])->group(function (){
+Route::middleware(['auth:pengelola', 'role:toolman', 'cors'])->group(function (){
     Route::get('/dashboard/toolman', [Toolman::class, 'index'])->name('get.dashboardToolman');
     Route::get('/dashboard/toolman/logout', [AuthPengelola::class, 'logout'])->name('get.logoutToolman');
 });
