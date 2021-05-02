@@ -2,236 +2,182 @@
 
 @section('title', $title)
 
+@push('css')
+
+@endpush
+
 @section('content')
-    <header class="hero is-light">
-        <div class="hero-head">
-            <nav class="navbar" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-                    <a class="navbar-item" href="https://bulma.io">
-                        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, and modern CSS framework based on Flexbox" width="112" height="28">
-                    </a>
-
-                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                    </a>
-                </div>
-            </nav>
-        </div>
-    </header>
-    <div class="section">
-        <div class="columns">
-            <aside class="column is-2">
-                <nav class="menu">
-                    <p class="menu-label">
-                        General
-                    </p>
-                    <ul class="menu-list">
-                        <li><a>Dashboard</a></li>
-                        <li><a>Customers</a></li>
-                    </ul>
-                    <p class="menu-label">
-                        Administration
-                    </p>
-                    <ul class="menu-list">
-                        <li><a>Team Settings</a></li>
-                        <li>
-                            <a class="is-active">Manage Your Team</a>
-                            <ul>
-                                <li><a>Members</a></li>
-                                <li><a>Plugins</a></li>
-                                <li><a>Add a member</a></li>
-                            </ul>
-                        </li>
-                        <li><a>Invitations</a></li>
-                        <li><a>Cloud Storage Environment Settings</a></li>
-                        <li><a>Authentication</a></li>
-                    </ul>
-                    <p class="menu-label">
-                        Transactions
-                    </p>
-                    <ul class="menu-list">
-                        <li><a>Payments</a></li>
-                        <li><a>Transfers</a></li>
-                        <li><a>Balance</a></li>
-                    </ul>
-                </nav>
-            </aside>
-            <main class="column">
-                <div class="level">
-                    <div class="level-left">
-                        <div class="level-item">
-                            <div class="title">Dashboard</div>
-                        </div>
-                    </div>
-                    <div class="level-right">
-                        <div class="level-item">
-                            <button type="button" class="button is-small">
-                                March 8, 2017 - April 6, 2017
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="columns is-multiline">
-                    <div class="column">
-                        <div class="box">
-                            <div class="heading">Top Seller Total</div>
-                            <div class="title">56,950</div>
-                            <div class="level">
-                                <div class="level-item">
-                                    <div class="">
-                                        <div class="heading">Sales $</div>
-                                        <div class="title is-5">250,000</div>
-                                    </div>
-                                </div>
-                                <div class="level-item">
-                                    <div class="">
-                                        <div class="heading">Overall $</div>
-                                        <div class="title is-5">750,000</div>
-                                    </div>
-                                </div>
-                                <div class="level-item">
-                                    <div class="">
-                                        <div class="heading">Sales %</div>
-                                        <div class="title is-5">25%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="box">
-                            <div class="heading">Revenue / Expenses</div>
-                            <div class="title">55% / 45%</div>
-                            <div class="level">
-                                <div class="level-item">
-                                    <div class="">
-                                        <div class="heading">Rev Prod $</div>
-                                        <div class="title is-5">30%</div>
-                                    </div>
-                                </div>
-                                <div class="level-item">
-                                    <div class="">
-                                        <div class="heading">Rev Serv $</div>
-                                        <div class="title is-5">25%</div>
-                                    </div>
-                                </div>
-                                <div class="level-item">
-                                    <div class="">
-                                        <div class="heading">Exp %</div>
-                                        <div class="title is-5">45%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="box">
-                            <div class="heading">Feedback Activity</div>
-                            <div class="title">78% &uarr;</div>
-                            <div class="level">
-                                <div class="level-item">
-                                    <div class="">
-                                        <div class="heading">Positive</div>
-                                        <div class="title is-5">1560</div>
-                                    </div>
-                                </div>
-                                <div class="level-item">
-                                    <div class="">
-                                        <div class="heading">Negative</div>
-                                        <div class="title is-5">368</div>
-                                    </div>
-                                </div>
-                                <div class="level-item">
-                                    <div class="">
-                                        <div class="heading">Pos/Neg %</div>
-                                        <div class="title is-5">77% / 23%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="box">
-                            <div class="heading">Orders / Returns</div>
-                            <div class="title">75% / 25%</div>
-                            <div class="level">
-                                <div class="level-item">
-                                    <div class="">
-                                        <div class="heading">Orders $</div>
-                                        <div class="title is-5">425,000</div>
-                                    </div>
-                                </div>
-                                <div class="level-item">
-                                    <div class="">
-                                        <div class="heading">Returns $</div>
-                                        <div class="title is-5">106,250</div>
-                                    </div>
-                                </div>
-                                <div class="level-item">
-                                    <div class="">
-                                        <div class="heading">Success %</div>
-                                        <div class="title is-5">+ 28,5%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="columns is-multiline">
-                    <div class="column is-6">
-                        <div class="panel">
-                            <p class="panel-heading">
-                                Expenses: Daily - $700
-                            </p>
-                            <div class="panel-block">
-                                <figure class="image is-16x9">
-                                    <img src="https://placehold.it/1280x720">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column is-6">
-                        <div class="panel">
-                            <p class="panel-heading">
-                                Refunds: Daily - $200
-                            </p>
-                            <div class="panel-block">
-                                <figure class="image is-16x9">
-                                    <img src="https://placehold.it/1280x720">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column is-6">
-                        <div class="panel">
-                            <p class="panel-heading">
-                                Something
-                            </p>
-                            <div class="panel-block">
-                                <figure class="image is-16x9">
-                                    <img src="https://placehold.it/1280x720">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column is-6">
-                        <div class="panel">
-                            <p class="panel-heading">
-                                Something Else
-                            </p>
-                            <div class="panel-block">
-                                <figure class="image is-16x9">
-                                    <img src="https://placehold.it/1280x720">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-        </div>
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+        <img class="animation__shake" src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60" width="60">
     </div>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Dashboard Kesiswaan</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Dashboard Kesiswaan</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="row">
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3>{{ $jumlah_siswa_aktif }}</h3>
+
+                                <p>Siswa Aktif</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-ios-people"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-success">
+                            <div class="inner">
+                                <h3>{{ $jumlah_siswa_laki_laki }}</h3>
+
+                                <p>Siswa Laki-laki</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-man"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-warning">
+                            <div class="inner">
+                                <h3>{{ $jumlah_siswa_perempuan }}</h3>
+
+                                <p>Siswa Perempuan</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-woman"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-danger">
+                            <div class="inner">
+                                <h3>65</h3>
+
+                                <p>Unique Visitors</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-pie-graph"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                </div>
+                <!-- Main row -->
+                <div class="row">
+                    <section class="col-lg-7 connectedSortable">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="fas fa-chart-pie mr-1"></i>
+                                    Persentase siswa berdasarkan jenis kelamin
+                                </h3>
+                            </div><!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="tab-content p-0">
+                                    <div class="chart" id="revenue-chart"
+                                         style="position: relative; height: 300px;">
+                                        <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
+                                    </div>
+                                </div>
+                            </div><!-- /.card-body -->
+                        </div>
+                    </section>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
 @endsection
+
+@push('js')
+    <!-- ChartJS -->
+    <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
+    <script>
+        let jumlahSiswa = {!!  json_encode($jumlah_siswa_gender) !!};
+        let jenis_kelamin = [];
+        let jumlah_siswa = [];
+        Object.keys(jumlahSiswa).forEach(key => {
+            // console.log(key, jumlahSiswa[key]);
+            jenis_kelamin.push(jumlahSiswa[key]["jenis_kelamin"]);
+            jumlah_siswa.push(jumlahSiswa[key]["jumlah"]);
+        });
+        var ctx = document.getElementById('revenue-chart-canvas').getContext('2d');
+        var pieData = {
+            labels: jenis_kelamin,
+            datasets: [
+                {
+                    data: jumlah_siswa,
+                    backgroundColor: ['#f56954', '#00a65a']
+                }
+            ]
+        };
+        var pieOptions = {
+            legend: {
+                display: true
+            },
+            maintainAspectRatio: false,
+            responsive: true,
+            tooltips: {
+                enabled: true
+            },
+            plugins: {
+                datalabels: {
+                    formatter: (value, ctx) => {
+                        let sum = 0;
+                        let dataArr = ctx.chart.data.datasets[0].data;
+                        dataArr.map(data => {
+                            sum += data;
+                        });
+                        let percentage = (value*100 / sum).toFixed(2)+"%";
+                        return percentage;
+                    },
+                    color: '#fff',
+                }
+            }
+        }
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: pieData,
+            options: pieOptions
+        });
+    </script>
+@endpush
+

@@ -3,48 +3,62 @@
 @section('title', $title)
 
 @section('content')
-    <section class="hero is-info is-fullheight">
-        <div class="hero-body">
-            <div class="container">
-                @if ($message = \Illuminate\Support\Facades\Session::get('error'))
-                <div id="notif-message" class="columns is-centered">
-                    <div class="column is-5-tablet is-4-desktop is-4-widescreen">
-                        <div class="notification is-danger">
-                            <button class="delete" onclick="closeFun()"></button>
-                            <strong>{{ $message }}</strong>
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="#"><b>{{ $title }}</b> LTE</a>
+        </div>
+        <!-- /.login-logo -->
+        @if($message = \Illuminate\Support\Facades\Session::get('error'))
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
+        @endif
+        <!-- /.Alert -->
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Masuk untuk memulai sesi anda</p>
+
+                <form action="{{ route('post.loginPengelola') }}" method="post">
+                    @csrf
+                    <div class="input-group mb-3">
+                        <input type="email" name="email" class="form-control" placeholder="Email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                @endif
-                <div class="columns is-centered">
-                    <div class="column is-5-tablet is-4-desktop is-4-widescreen">
-                        <form action="{{ route('post.loginPengelola') }}" class="box" method="post">
-                            @csrf
-                            <div class="field">
-                                <label for="" class="label">Email</label>
-                                <div class="control has-icons-left">
-                                    <input type="email" name="email" class="input" required>
-                                    <span class="icon is-small is-left">
-                                        <i class="fa fa-envelope"></i>
-                                    </span>
-                                </div>
+                    <div class="input-group mb-3">
+                        <input type="password" name="password" class="form-control" placeholder="Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
                             </div>
-                            <div class="field">
-                                <label for="" class="label">Password</label>
-                                <div class="control has-icons-left">
-                                    <input type="password" name="password" class="input" required>
-                                    <span class="icon is-small is-left">
-                                        <i class="fa fa-lock"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="field">
-                                <button class="button is-success">Login</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="remember">
+                                <label for="remember">
+                                    Ingat Saya
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+                <p class="mb-1">
+                    <a href="#">Lupa Password?</a>
+                </p>
             </div>
+            <!-- /.login-card-body -->
         </div>
-    </section>
+    </div>
+    <!-- /.login-box -->
 @endsection
