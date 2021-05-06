@@ -27,9 +27,6 @@
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{ route('get.dashboardKesiswaan') }}" class="nav-link">Dashboard</a>
             </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('get.logoutKesiswaan') }}" class="btn btn-danger">Keluar</a>
-            </li>
         </ul>
     </nav>
     <!-- /.navbar -->
@@ -60,11 +57,25 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('get.dashboardKesiswaan') }}" class="nav-link">
+                            <i class="fas fa-tachometer-alt nav-icon"></i>
+                            <p>
+                                Dashboard
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('get.tahunAjaranKesiswaan') }}" class="nav-link">
                             <i class="fas fa-calendar-alt nav-icon"></i>
                             <p>
                                 Tahun Ajaran
                             </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('get.logoutKesiswaan') }}" class="btn btn-block btn-danger">
+                            <i class="fas fa-power-off nav-icon"></i>
+                            <b>Keluar</b>
                         </a>
                     </li>
                 </ul>
@@ -77,7 +88,7 @@
     @yield('content')
 
     <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+        <strong>Copyright &copy; 2021 <a href="#">Mas Git</a>.</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 3.1.0

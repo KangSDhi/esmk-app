@@ -5,6 +5,7 @@ use App\Http\Controllers\Home\HomeController as Home;
 use App\Http\Controllers\Auth\AuthPengelolaController as AuthPengelola;
 use App\Http\Controllers\Admin\AdminController as Admin;
 use App\Http\Controllers\Kesiswaan\KesiswaanController as Kesiswaan;
+use App\Http\Controllers\Kesiswaan\TahunAjaranController as TahunAjaranKesiswaan;
 use App\Http\Controllers\Toolman\ToolmanController as Toolman;
 
 /*
@@ -34,6 +35,7 @@ Route::middleware(['auth:pengelola', 'role:admin', 'cors'])->group(function (){
 Route::middleware(['auth:pengelola', 'role:kesiswaan', 'cors'])->group(function (){
     Route::get('/dashboard/kesiswaan', [Kesiswaan::class, 'index'])->name('get.dashboardKesiswaan');
     Route::get('/dashboard/kesiswaan/logout', [AuthPengelola::class, 'logout'])->name('get.logoutKesiswaan');
+    Route::get('/dashboard/kesiswaan/tahun-ajaran', [TahunAjaranKesiswaan::class, 'index'])->name('get.tahunAjaranKesiswaan');
 });
 
 Route::middleware(['auth:pengelola', 'role:toolman', 'cors'])->group(function (){
