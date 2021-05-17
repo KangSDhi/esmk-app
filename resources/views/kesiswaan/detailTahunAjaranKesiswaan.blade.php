@@ -11,6 +11,7 @@
 
 @section('content')
     <div class="content-wrapper">
+
         <div class="content-header">
             <div class="row mb-2">
                 <div class="col-sm-6">
@@ -23,7 +24,27 @@
                     </ol>
                 </div>
             </div>
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <button id="btnTambah" class="btn btn-primary">Tambah</button>
+                    <button id="btnImport" class="btn btn-success" data-toggle="modal" data-target="#modalImport">Import</button>
+                </div>
+            </div>
+            @if($errors->any())
+                <div class="row mb-2">
+                    <div class="col-sm-12">
+                        <div class="alert alert-danger mt-3 mr-2 ml-2">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            @endif
         </div>
+
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -52,22 +73,37 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="modalImport" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <form action="{{ route('post.tahunAjaranKesiswaanImport') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Import Excel</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="file" name="file_excel" accept=".xls,.xlsx"/>
+                            <input type="hidden" name="tahun_ajaran" value="{{ $tahun_ajaran }}">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-primary">Upload</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
     </div>
 @endsection
 
 @push('js')
     <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('plugins/jszip/jszip.min.js') }}"></script>
-    <script src="{{ asset('plugins/pdfmake/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('plugins/pdfmake/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
     <script>
         let url = "{{ route('post.tahunAjaranKesiswaanDetail') }}";
         let tahunAjaran = "{{ $tahun_ajaran }}";
