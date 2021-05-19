@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Kesiswaan;
 
 use App\Http\Controllers\Controller;
+use App\Imports\SiswaTahunAjaranImport;
 use App\Models\Siswa;
 use App\Models\TahunAjaran;
 use Illuminate\Database\Eloquent\Model;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\Facades\DataTables;
 
 class TahunAjaranController extends Controller
@@ -119,6 +121,7 @@ class TahunAjaranController extends Controller
         if ($validator->fails()){
             return Redirect::route('get.tahunAjaranKesiswaanDetail', Crypt::encrypt($tahun_ajaran))->withErrors($validator);
         }else{
+            Excel::import(new SiswaTahunAjaranImport($tahun_ajaran), $request->file_excel);
             return Redirect::route('get.tahunAjaranKesiswaanDetail', Crypt::encrypt($tahun_ajaran));
         }
     }

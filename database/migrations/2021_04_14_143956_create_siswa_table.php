@@ -33,7 +33,7 @@ class CreateSiswaTable extends Migration
             $table->string('tahun_lulus')->nullable();
             $table->string('no_hp')->unique()->nullable();
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->string('no_akta_lahir')->nullable();
             $table->string('foto_akta_lahir')->nullable();
             $table->string('no_ijasah')->nullable();
